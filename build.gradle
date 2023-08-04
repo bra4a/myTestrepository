@@ -1,0 +1,27 @@
+plugins {
+    id 'java-library'
+}
+
+repositories {
+    mavenCentral()
+}
+
+compileTestJava {
+    options.encoding = 'UTF-8'
+}
+
+dependencies {
+    testImplementation (
+            "org.junit.jupiter:junit-jupiter-api:5.9.2",
+            "org.junit.jupiter:junit-jupiter-engine:5.9.2",
+            "com.codeborne:selenide:6.16.1")
+}
+
+wrapper {
+    gradleVersion = '8.1'
+    distributionUrl = "http://binary/artifactory/gradle-wrapper-remote-cache/distributions/gradle-$gradleVersion-bin.zip"
+}
+
+test {
+    useJUnitPlatform()
+}
